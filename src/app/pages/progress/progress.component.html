@@ -10,11 +10,22 @@
 
         <div class="progress m-t-20">
           <div class="progress-bar bg-primary progress-bar-striped active"
-               style="height:10px"
-               [style.width]="getPercentage"
+               style="height:10px; width: 5%;"
                role="progressbar">
           </div>
         </div>
+        <br>
+        <h4 class="card-title">Striped Progress bar <a class="get-code" data-toggle="collapse" href="#pgr3"
+          aria-expanded="true"><i class="fa fa-code" title="" data-toggle="tooltip"
+            data-original-title="Get Code"></i></a>
+      </h4>
+
+      <div class="progress m-t-20">
+        <div class="progress-bar bg-info progress-bar-striped active"
+        style="height:10px; width: 95%;"
+             role="progressbar">
+        </div>
+      </div>
 
       </div>
     </div>
@@ -27,25 +38,8 @@
     <div class="card">
       <div class="card-body">
 
-        <div class="input-group">
-          <span class="input-group-btn">
-            <button class="btn btn-primary"
-                    (click)="changeProgress(-5)"
-                    type="button">
-                    <i class="fa fa-minus"></i>
-            </button>
-          </span>
+        <component-increaser btnColor="btn-primary" [progress]="primaryBarProgress"></component-increaser>
 
-          <input type="text" class="form-control" placeholder="Product name">
-
-          <span class="input-group-btn">
-            <button class="btn btn-primary"
-                    (click)="changeProgress(+5)"
-                    type="button">
-              <i class="fa fa-plus"></i>
-            </button>
-          </span>
-        </div>
       </div>
     </div>
   </div>
@@ -53,7 +47,7 @@
   <div class="col-6">
     <div class="card">
       <div class="card-body">
-        {{getPercentage}}
+        <component-increaser btnColor="btn-info" [progress]="infoBarProgress"></component-increaser>
       </div>
     </div>
   </div>
