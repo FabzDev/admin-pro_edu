@@ -10,7 +10,8 @@
 
         <div class="progress m-t-20">
           <div class="progress-bar bg-primary progress-bar-striped active"
-               style="height:10px; width: 5%;"
+               style="height:10px;"
+               [style.width]="primaryBarProgress + '%'"
                role="progressbar">
           </div>
         </div>
@@ -22,7 +23,8 @@
 
       <div class="progress m-t-20">
         <div class="progress-bar bg-info progress-bar-striped active"
-        style="height:10px; width: 95%;"
+             style="height:10px"
+             [style.width]="infoBarProgress + '%'"
              role="progressbar">
         </div>
       </div>
@@ -38,8 +40,10 @@
     <div class="card">
       <div class="card-body">
 
-        <component-increaser btnColor="btn-primary" [progress]="primaryBarProgress"></component-increaser>
-
+        <component-increaser btnColor="btn-primary"
+                             [progress]="primaryBarProgress"
+                             (emitterValue)="primaryBarProgress = $event">
+        </component-increaser>
       </div>
     </div>
   </div>
@@ -47,7 +51,10 @@
   <div class="col-6">
     <div class="card">
       <div class="card-body">
-        <component-increaser btnColor="btn-info" [progress]="infoBarProgress"></component-increaser>
+        <component-increaser btnColor="btn-info"
+                             [progress]="infoBarProgress"
+                             (emitterValue)="infoBarProgress = $event">
+      </component-increaser>
       </div>
     </div>
   </div>
