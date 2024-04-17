@@ -6,8 +6,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './increaser.component.css',
 })
 export class IncreaserComponent {
-  @Input() btnColor: string = '';
   @Input() progress: number = 50;
+  @Input() btnColor: string = 'btn btn-primary';
 
   @Output() emitterValue: EventEmitter<number> = new EventEmitter<number>();
 
@@ -24,5 +24,17 @@ export class IncreaserComponent {
     this.progress += value;
     this.emitterValue.emit(this.progress);
 
+  }
+
+  ngModelChange(newValue: number){
+    if (newValue >= 100) {
+      this.progress = 100;
+    } else if (newValue <= 0){
+      this.progress = 0;
+    } else {
+      this.progress = newValue;
+    }
+
+    this.emitterValue.emit(this.progress);
   }
 }
