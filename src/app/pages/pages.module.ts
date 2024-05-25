@@ -8,7 +8,6 @@ import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ComponentsModule } from '../components/components.module';
-import { BaseChartDirective } from 'ng2-charts';
 
 
 @NgModule({
@@ -24,7 +23,6 @@ import { BaseChartDirective } from 'ng2-charts';
     RouterModule,
     FormsModule,
     ComponentsModule,
-    BaseChartDirective
   ],
 })
 export class PagesModule {}

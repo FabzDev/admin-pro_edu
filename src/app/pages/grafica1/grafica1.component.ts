@@ -8,18 +8,22 @@ import { ChartData, ChartEvent, ChartType, Color } from 'chart.js';
 })
 export class Grafica1Component {
   // Doughnut
-  public doughnutChartLabels: string[] = [
-    'Download Sales',
-    'In-Store Sales',
-    'Mail-Order Sales',
+  public labels1: string[] = [
+    'Fabio',
+    'Yulieth',
+    'Alejandro',
   ];
 
-  public doughnutChartData: ChartData<'doughnut'> = {
-    labels: this.doughnutChartLabels,
+  public data1: number[] = [34, 27, 1]
+  public colors1: string[] = ['blue', '#FF9FEE', 'yellow']
+  public name1: string = 'Flia Escobar Horta'
+
+  public doughnutChartData1: ChartData<'doughnut'> = {
+    labels: this.labels1,
     datasets: [
       {
-        data: [350, 450, 100],
-        backgroundColor: ['#6857E6', '#009FEE', '#F02059'],
+        data: this.data1,
+        backgroundColor: this.colors1,
       },
     ],
   };
