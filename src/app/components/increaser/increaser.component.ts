@@ -8,6 +8,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class IncreaserComponent {
   @Input() progress: number = 50;
   @Input() btnColor: string = 'btn btn-primary';
+  flag: boolean = false;
 
   @Output() emitterValue: EventEmitter<number> = new EventEmitter<number>();
 
@@ -27,13 +28,18 @@ export class IncreaserComponent {
   }
 
   ngModelChange(newValue: number){
-    if (newValue >= 100) {
+    if (newValue > 100) {
       this.progress = 100;
-    } else if (newValue <= 0){
+      this.flag = true;
+    } else if (newValue < 0){
       this.progress = 0;
+      this.flag = true;
     } else {
       this.progress = newValue;
+      this.flag = false;
     }
+
+    // console.log(this.flag);
 
     this.emitterValue.emit(this.progress);
   }
