@@ -7,6 +7,8 @@ import { PagesModule } from './pages/pages.module';
 
 import { AppComponent } from './app.component';
 
+import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +18,7 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     PagesModule
   ],
-  providers: [],
+  providers: [provideCharts(withDefaultRegisterables())],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
