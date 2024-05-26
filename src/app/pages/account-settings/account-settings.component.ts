@@ -11,4 +11,12 @@ import { Component } from '@angular/core';
 })
 export class AccountSettingsComponent {
 
+
+  onClickTheme(theme: string){
+    const linkedTheme = document.getElementById("theme");
+    const href = `./assets/css/colors/${theme}.css`;
+
+    linkedTheme?.setAttribute('href', href);
+  }
+
 }
