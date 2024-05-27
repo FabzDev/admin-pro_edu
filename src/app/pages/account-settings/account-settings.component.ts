@@ -8,20 +8,13 @@ import { SettingsService } from '../../services/settings.service';
 })
 export class AccountSettingsComponent implements OnInit{
   public settingService = inject(SettingsService);
-  public elementList!:NodeListOf<Element>;
 
   ngOnInit(): void {
-    this.elementList = document.querySelectorAll(".selector");
-    this.checkMark();
+    this.changeTheme(localStorage.getItem('lsTheme') || 'default-dark')
   }
 
-  onClickTheme(theme: string){
-    this.settingService.onClickTheme(theme);
-    this.checkMark();
-  }
-
-  checkMark(){
-    this.settingService.checkMark(this.elementList)
+  changeTheme(theme: string){
+    this.settingService.changeTheme(theme);
   }
 
 }
