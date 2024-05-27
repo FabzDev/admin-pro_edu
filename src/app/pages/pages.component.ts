@@ -1,10 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { SettingsService } from '../services/settings.service';
 
 @Component({
   selector: 'app-pages',
   templateUrl: './pages.component.html',
   styles: ``
 })
-export class PagesComponent {
+export class PagesComponent implements OnInit {
+  private settingService = inject(SettingsService)
+
+  ngOnInit(): void {
+  }
 
 }
